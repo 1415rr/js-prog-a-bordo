@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <script>
+
+		//aula05 - operadores logicos
+		/*
+		file:///C:/rsr/lab/js-prog-a-bordo/index.html
+
+		https://youtu.be/vrSEt5J4q2Y?t=1600
+		*/
+
+		var V=true;
+		var F=false;
+
+		//exibindo
+		cl(`Verdadeiro ==>  ${V}`);
+		cl(`Falso      ==>  ${F}`);
+
+		//negativo !
+		cl(`Negativo de Verdadeiro ==>  ${!V}`);
+		cl(`Negativo de Falso      ==>  ${!F}`);
+		cl(`Duplo Negativo de Verdadeiro ==>  ${!!V}`);
+		cl(`Duplo Negativo de Falso      ==>  ${!!F}`);
+
+		//valem por false
+		// null, false, '', undefined, 0   (false é false +4)
+		cl(`NULL       ==>  ${null}`);
+		cl(`!NULL      ==>  ${!null}`);
+		cl(`!!NULL     ==>  ${!!null}`);
+
+		//tudo que difrerente de falso, vale por true
+		cl(`texto       ==>  ${'texto'}`);
+		cl(`!texto      ==>  ${!'texto'}`);
+		cl(`!!texto     ==>  ${!!'texto'}`);
+
+		// operador AND - duplo E => && 
+		// retorna a ultima verdadeira ou a primeira false
+		cl(`AND - DUPLO E`);
+
+
+		// && - para true retorna o ultimo true ( que é o ultimo elemento ).
+		var result = V && 'texto' && -1 && !null && 'este';
+		cl(`result true vale:     ==>  ${result}`);
+
+		// && - para false retorna o primeiro false
+		var result = V & 0 && 'texto' && -1 && null && 'este';
+		cl(`result false vale:     ==>  ${result}`);
+
+		// com testes de expressoes boolanas
+		var result1 = 10>5;
+		var result2 = 10>3;
+		cl(`result de 10>5 && 10>3 vale:     ==>  ${result1 && result2}`);
+
+		var result1 = 10>5;
+		var result2 = 10>11;
+		cl(`result de 10>5 && 10>11 vale:     ==>  ${result1 && result2}`);
+
+		// operador OR - duplo pipe => ||
+		// retorna a primeira verdadeira ou a ultima false 
+		cl(`OR - DUPLO PIPE`);
+
+		var result = null || 'texto' || -1 || !null || 'este';
+		cl(`result vale:     ==>  ${result}`);
+
+		var result = null || '' || 0 || undefined || false || '';
+		cl(`result false no OR vale:     ==>  ${result}`);
+		
+		//diferenca de && e ||
+		// &&: retorna a ultima   verdadeira ou a primeira false
+		// ||: retorna a primeira verdadeira ou a ultima   false
+		// para lembrar sempre: AND é a ultima verdadeira. Todo o resto dá para deduzir daí.
+		
+		//calculando && x || sem parenteses - precedencia
+		// AND tem precedencia ao OR
+		
+		var result = 1 && 2 || 0 && 3 || 4 && 5;
+		cl(`result - independe de precendencia - ultimo verdadeiro do primeiro AND :     ==>  ${result}`);
+		
+		var result = 1 || 2 && 0 && 3 || 4 && 5;
+		// se nao houvesse precedencia, o resultado seria 4
+		//como é feito ( com precedencia )
+		// 1 OU (2 E 0 E 3 ) OU (4 E 5)
+		
+		// como seria sem precedenciia
+		// ((((( 1 OU 2 ) E 0) E 3 ) OU 4) E 5)
+		//         1        0    0      4    4
+
+		cl(`result com precedencia  :     ==>  ${result}`);
+ 
+		
+	  
+	  
+
+
+      
+
+
+      ////////////////////////////////////////////////////
+
+      function cl (texto) {
+         console.log (texto);
+      }
+      function dw (texto) {
+         document.write (texto);
+      }
+      
+
+      
+
+   </script>
+   
+</body>
+</html>

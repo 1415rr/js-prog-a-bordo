@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <script>
+		/*
+		aula06 - if else.html
+
+		file:///C:/rsr/lab/js-prog-a-bordo/index.html
+
+		https://youtu.be/vrSEt5J4q2Y?t=2832
+		*/		
+		////////////////////////////////////////////////////
+		function cl (texto) {console.log (texto)};
+		function dw (texto) {document.write (texto)};
+		////////////////////////////////////////////////////
+		
+		// if
+		if ( 3<= 4 ) {
+			cl ('tres menor ou igual a quatro');
+		}
+		if ( 3 == 4 ) {
+			cl ('tres igual a quatro');
+		}
+		
+		var vazio='';
+		var umchar=' ';
+		if (vazio) {
+			cl ( 'condicao do vazio.' );
+		}
+		if (umchar) {
+			cl ( 'condicao do um char.' );
+		} 
+		
+		//********** teste meu: funcionou da mesma forma.
+		if (vazio) cl ( 'condicao do vazio.' );
+		if (umchar) cl ( 'condicao do um char.' );
+		//********** 
+
+
+		// else
+		if (vazio) {
+			cl ( 'condicao do vazio.' );
+		} else {
+			cl ( 'else do vazio.' );
+		}
+		
+		//********** teste meu: funcionou da mesma forma.
+		if (vazio) cl ( 'condicao do vazio.' ); else cl ( 'else do vazio.' );
+		if (umchar) cl ( 'condicao do 1char.' ); else cl ( 'else do 1char.' );
+		
+		if (vazio) {
+			cl ( 'condicao do vazio.' );
+		} 
+		else 
+		{
+			cl ( 'else do vazio.' );
+		}
+		//********** fim do teste meu.
+		
+		if (false) cl(1); else if (false) cl(2); else if(false) cl(3); else if(true) cl(4);
+		
+		if (false) {
+			cl('1 - entrou'); 
+		} else if (false) {
+			cl('2 - entrou'); 
+		} else if (false) {
+			cl('3 - entrou'); 
+		} else if (true) {
+			cl('4 - entrou'); 
+		} else {  //posso usar else IF sem else e vice versa.
+			cl('5 - entrou'); 
+		}
+		
+		
+		
+		
+		
+      
+
+      
+
+   </script>
+   
+</body>
+</html>
