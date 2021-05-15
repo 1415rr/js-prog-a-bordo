@@ -28,7 +28,7 @@ conta ano 1-10
 	se não há o que governar
 		fClassifica
 		fim
-	se houve perdas muito grandes (com eventoos )
+	se houve perdas muito grandes (com eventos )
 		fClassifica
 		fim
 	se houve erros muito grandes ( fora eventos )
