@@ -1,0 +1,101 @@
+1<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <script>
+		/*
+		aula08 - switch case break default.html
+
+		file:///C:/rsr/lab/js-prog-a-bordo/index.html
+
+		https://youtu.be/vrSEt5J4q2Y?t=3300
+		*/		
+		////////////////////////////////////////////////////
+		function cl (texto) {console.log (texto)};
+		function dw (texto) {document.write (texto)};
+		////////////////////////////////////////////////////
+
+		/* 
+		if - testa expressao booleana;
+		switch case - testa o valor retornado;
+		switch - pega o valor ( recebe entre parenteses ) e abre chaves.
+		case - testa o valor  e dois pontos ( não tem chave ?)
+		break - usado no final do case interrompe os proximos testes de case - economiza processamento e evita o multicase.
+		default - equivale ao else - mesma sintaxe do else.
+		
+		multicase: quando uma condicao acha o seu "case" ela continua executando e ignora os testes "case" abaixo. 
+		funciona algo analogo aos labels de goto.
+		sem o break, é possível fazer alguns tratamentos diferenciados para os 
+		cases antes de um comando comum a eles. Mas isto não deve ser muito usual...
+		*/
+		
+		
+//entra no case
+		var cor = 'amarelo';
+		
+		switch (cor) {
+		case 'branco':
+			cl ('entrou no BRANCO');
+			break;
+		case 'amarelo':
+			cl ('entrou no AMARELO');
+			break;
+		default :
+			cl ('cor de burro quando foge.');
+			break;
+		}
+		
+// entra no default
+		var cor = 'azul';
+		
+		switch (cor) {
+		case 'branco':
+			cl ('entrou no BRANCO');
+			break;
+		case 'amarelo':
+			cl ('entrou no AMARELO');
+			break;
+		default :
+			cl ('cor de burro quando foge.');
+			break;
+		}
+		
+// multicase
+
+		var cor = 'verde';
+
+		switch (cor) {
+			case 'vermelho':
+			case 'amarelo':
+			case 'laranja':
+				cl ('cor quente!');
+				break;
+			case 'azul':
+				cl ('azul, caraia!');
+			case 'verde':
+				cl ('verde, caraia!');
+			case 'roxo':
+				cl ('roxo, ora essa!');
+				cl ('cor fria!');
+				break;
+			default:
+				cl ('cor nao identificada!');
+				break;
+		}
+			
+		
+			
+		
+      
+
+      
+
+   </script>
+   
+</body>
+</html>

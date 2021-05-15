@@ -1,0 +1,60 @@
+armazenamento e estrutura de dados
+	armazenar e acessar
+	tipos primitivos
+	valores null, undefined, symbol
+	listas/arrays
+	coleções/array de objetos
+	"tipos novos" map, weakmap, set, weakset
+
+Manipulação de dados
+	trasnsformar dados
+	filtrar
+	ordenar
+	mesclar
+	deletar
+	localizar
+	map, filter, reduce, flat/flatmap
+	live de codigo previsivel
+
+sintaxe basica
+	condicionais if/else / switch case
+	loops for while
+	operadores logicos
+	operadores aritmeticos
+
+organizacao e reaproveitamento
+	funcoes
+	classes
+	modulos
+	import/export
+
+facilitadores de sintaxe
+	codigo menos "verboso"
+	não é mandatório, mas é útil
+	arrow function
+	spread operator
+	rest parameter
+	default parameter
+	nulling coalescing
+	async / await ( syntax sugar )
+	a maioria ES6+
+
+tratamento de erros
+	try/catch
+	
+Assincronismo
+	single thread não bloqueante
+	event loop
+	funcoes de callback
+	promisses
+	async / await
+	
+metaprogramação (es6+)
+	alterar dinamicamente o comportamento da linguagem
+	mudar o comportamento de um objeto
+	proxy
+
+influenciadores
+	hosting
+	closures
+	escopos

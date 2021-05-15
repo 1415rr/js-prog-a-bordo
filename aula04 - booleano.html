@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <script>
+
+      //aula 04 - booleano
+      /*
+      file:///C:/rsr/lab/js-prog-a-bordo/index.html
+      
+      https://youtu.be/vrSEt5J4q2Y?t=1169
+      */
+
+      /*
+      reservadas true false - case sensitive
+
+      */
+
+      var a = true; 
+      cl  (`conteudo:   ${a}`);
+
+      var a = false; 
+      cl  (`conteudo:   ${a}`);
+
+      cl  ('-- maior ou menor');
+      cl  (`conteudo 3>5:   ${3>5}`);
+      cl  (`conteudo 3<5:   ${3<5}`);
+
+      // maior ou igual
+      cl  ('-- maior ou igual');
+      cl  (`conteudo 5>=3:   ${5>=3}`);
+      cl  (`conteudo 3>=5:   ${3>=5}`);
+
+      // menor ou igual
+      cl  ('-- menor ou igual');
+      cl  (`conteudo 5<=3:   ${5<=3}`);
+      cl  (`conteudo 3<=5:   ${3<=5}`);
+
+      // diferente
+      cl  ('-- diferente');
+      cl  (`10!=10:   ${10!=10}`);
+      cl  (`10!=11:   ${10!=11}`);
+
+      // igual == e ===
+      var a1 = 10;
+      var a1s = '10';
+      var a2 = 10;
+      var b = 11;
+      var ds1 = 'rafael';
+      var ds2 = 'rafael';
+      var es = 'reis';
+
+      cl  ('-- igual');
+      cl (`${a1}==${a2}   ${a1==a2}`);
+      cl (`${a1}===${a2}   ${a1===a2}`);
+      cl (`${a1}==${b}   ${a1==b}`);
+      cl  ('-- igual com string');
+      cl (`${a1}=='${a1s}'   ${a1==a1s}`);
+      cl (`${a1}==='${a1s}'   ${a1===a1s}`);
+
+      cl (`${ds1}==${ds2}   ${ds1==ds2}`);
+      cl (`${ds1}===${ds2}   ${ds1===ds2}`);
+
+      cl (`${ds1}==${es}   ${ds1==es}`);
+      cl (`${ds1}===${es}   ${ds1===es}`);
+
+
+      ////////////////////////////////////////////////////
+
+      function cl (texto) {
+         console.log (texto);
+      }
+      function dw (texto) {
+         document.write (texto);
+      }
+      
+
+      
+
+   </script>
+   
+</body>
+</html>

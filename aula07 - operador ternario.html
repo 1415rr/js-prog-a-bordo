@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <script>
+		/*
+		aula07 - operador ternario.html
+
+		file:///C:/rsr/lab/js-prog-a-bordo/index.html
+
+		https://youtu.be/vrSEt5J4q2Y?t=3225
+		*/		
+		////////////////////////////////////////////////////
+		function cl (texto) {console.log (texto)};
+		function dw (texto) {document.write (texto)};
+		////////////////////////////////////////////////////
+		
+		cl ( true ? 'Verdadeiro' : 'Falso' );
+		cl ( '' ? 'Verdadeiro' : 'Falso' );
+		
+		// teste ousado
+		var idade = 71;
+		var saida = idade>=18 ? idade>50 ? idade>70 ? 'mais velho' : 'coroa' : 'de maior' : idade<13 ? 'crianca' : 'adolescente';
+		cl (saida);
+		
+		//identando para facilitar a compreensao do teste ousado.
+		var saida = 	idade>=18 ? 
+							idade>50 ? 
+								idade>70 ? 
+									'mais velho' 
+									: 'coroa' 
+								: 'de maior' 
+							: idade<13 ? 
+								'crianca' 
+								: 'adolescente';
+		cl (saida);
+		
+		
+		
+      
+
+      
+
+   </script>
+   
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <script>
+
+      //strings
+      var nome = 'Rafael Silveira Reis';
+      console.log(nome);
+      console.log(nome.length); //length e propriedade de  string
+
+      console.log('Rafael'.length);
+
+      //funcoes de strings
+      console.log('Rafael'.toLowerCase());
+      console.log('Rafael'.toUpperCase());
+
+      console.log(nome.indexOf('eis'));
+      console.log(nome.indexOf('eiS'));
+
+      console.log(nome.replace('eis', '-EIS-'));
+
+      console.log(nome.slice (3,-1));
+
+      tituloComEspacos = '         Anaproegua de sistremas         ';
+      console.log(tituloComEspacos);
+      console.log(tituloComEspacos.trim());
+
+      console.log (nome + ' é um excelente ' + tituloComEspacos.trim() );
+
+      //ES6 - templateString
+      saida = `${nome} é um excelente ${tituloComEspacos.trim()}. - templateString`;
+      console.log (saida);
+      
+
+   </script>
+   
+</body>
+</html>
