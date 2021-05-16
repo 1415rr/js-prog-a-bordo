@@ -88,7 +88,7 @@
 //5
 		escopo lexico
 			o valor da váriável permanece o delcarado durante
-			todo o tenpo de vida da variavel.
+			durante todo o tempo de vida da variavel.
 			
 			costuma estar bem acessivel para sabermos o seu valor
 			lendo o codigo.
