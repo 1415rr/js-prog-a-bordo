@@ -8,7 +8,7 @@
 		
 
 		/*
-		aula17 - closures.js
+		aula18 - constantes.js
 
 		===========================================================
 		==        arquivo de trabalho ( chama este JS )			 ==
@@ -17,7 +17,7 @@
 		===========================================================
 
 		aula atual ( com segundo corrente )
-		https://www.youtube.com/watch?v=MR8IyuhrDK8
+		https://youtu.be/AyMwn_751RY
 
 		Playlist completa.
 		https://www.youtube.com/watch?v=vrSEt5J4q2Y&list=PLbA-jMwv0cuWbas947cygrzfzHIc7esmp
@@ -66,42 +66,21 @@
 
 	
 	/* 
-		closure
-		é um recurso que usa lexical scope para 
-		que uma function tenha acesso às variáveis 
-		da function superior ( na callstack ).
-		
-		usando closure, uma function pode memorizar
-		o escopo de onde ela foi chamada.
-		
-		
-		escopo lexico
-			o valor da váriável permanece o delcarado 
-			durante todo o tenpo de vida da variavel.
-						
-			costuma estar bem acessivel para sabermos o seu valor
-			lendo o codigo.
+		xxxxxxx
+		é um xxxxxxx
 		
 
 * //1
-		xxxxxxxxxxxxxxxx
-			yyyyyyyyyyyyyyyyyyyyyyyy
-			yyyyyyyyyyyyyyyyyyyyyyyy
-			yyyyyyyyyyyyyyyyyyyyyyyy
-			yyyyyyyyyyyyyyyyyyyyyyyy
-	 */
+		xxxxxxxx
+* //2
+		xxxxxxxx
+	
+		*/
 	 
 	/* ******************************************************************* */
-//1
 
-	function imprimeNome(){
-		let nome = 'Rafael';	
-		// retorna uma function com retorno.
-		return function(){
-			return nome;
-		};
-	};
-	imprimeNome();
+//1
+cl('constantes');
 
 /* 		
 		 */
@@ -114,8 +93,8 @@
 
 
 
-	 /* prox aula  closures
-	 https://www.youtube.com/watch?v=MR8IyuhrDK8
+	 /* prox aula  constantes
+	 https://youtu.be/AyMwn_751RY
 	 
 	 */
 	 

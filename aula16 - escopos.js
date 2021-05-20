@@ -70,7 +70,7 @@
 
 //1
 		escopo global
-			aquilo que é definido no arq prncipal do JS.
+			aquilo que é definido no arq principal do JS.
 			quando rodamos no browser, fica armazenada no 
 			objeto window que é o escopo maior dentro 
 			do navegador.
@@ -87,7 +87,7 @@
 		
 //5
 		escopo lexico
-			o valor da váriável permanece o delcarado durante
+			o valor da váriável permanece o declarado durante
 			durante todo o tempo de vida da variavel.
 			
 			costuma estar bem acessivel para sabermos o seu valor
@@ -171,6 +171,7 @@
 		var nome = 'Rafael';
 		cl (nome);
 	};
+	ImprimeLexico();
 	
 //6
 	var nome = "Cardvick";
