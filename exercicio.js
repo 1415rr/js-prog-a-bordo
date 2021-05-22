@@ -26,8 +26,18 @@
 
 	/* resumo do arquivo
 
-	1) 
-	
+	1) considerando que uma variavel declarada pode ser redeclarada ou redefinida, 
+	os declaradores comportam-se desta maneira.
+	Const precisa ser inicializada ou erro: "missing initializer"
+	--------------------------------------
+	comando		redeclarada 	redefinida
+	--------------------------------------
+		var			SIM				SIM
+		let			NAO				SIM
+		const			NAO				NAO
+
+		
+
 
 		lembrete:
 		
@@ -70,9 +80,9 @@
 		é um xxxxxxx
 		
 
-* //1
-		xxxxxxxx
-* //2
+* //1 constante tem escopo de bloco
+
+* //2 redeclarada e redefinida
 		xxxxxxxx
 	
 		*/
@@ -81,6 +91,39 @@
 
 //1
 cl('constantes');
+{ // bl 1
+	let autor = 'SR-Rafael'
+	{ //bl 1.1
+		const autor = 'RAFAEL';
+		const anoPublicacao  = '2021';
+		cl('dentro', autor);
+		cl('dentro', anoPublicacao);
+	}
+	cl('fora', autor); 
+	// cl('fora', anoPublicacao); //da erro	
+}
+
+//2 
+{
+	var v1 = 'v1-original';
+	let l1 = 'l1-original';
+	const c1 = 'c1-original';
+	cl(v1, l1, c1);
+
+	//	redeclara
+	var v1 = 'v1-redeclara';
+	// let l1 = 'l1-redeclara'; //da erro
+	// const c1 = 'c1-redeclara'; //da erro
+	cl(v1, l1, c1);
+
+	//	redefine
+	v1 = 'v1-redefine';
+	l1 = 'l1-redefine';
+	// c1 = 'c1-redefine'; //da erro
+	cl(v1, l1, c1);
+
+};
+
 
 /* 		
 		 */
@@ -94,7 +137,7 @@ cl('constantes');
 
 
 	 /* prox aula  constantes
-	 https://youtu.be/AyMwn_751RY
+	 https://youtu.be/AyMwn_751RY?t=256
 	 
 	 */
 	 
