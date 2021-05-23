@@ -126,7 +126,7 @@
 		'ventilador',
 		'porta',
 		'cadeira',
-		'mesaa',
+		'mesa',
 	];
 
 	usuario.arrChaves.push (arrInstrumentos);
