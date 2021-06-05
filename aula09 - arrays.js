@@ -44,7 +44,7 @@
 		cl (`reverso          ${numeros.reverse()}`);
 		cl (`sort de texto    ${numeros.sort()}`);
 
-		// sliice
+		// slice
 		cl ('------slice');
 		cl (`array:`);
 		cl (numeros);
