@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <script>
+
+{
+//---- string
+console.log ('--string-------------------'); 
+var nome = 'Rafael Silveira Reis';
+console.log(nome.toUpperCase());
+console.log(nome.toLowerCase());
+console.log(nome.indexOf('ei'));
+console.log(nome.replace('Silveira', 'Rubo'));
+console.log(nome.slice(7, 10)); //Sil
+
+var canalYoutube = '     Programador a Bordo    ';
+console.log(canalYoutube);
+console.log(canalYoutube.trim());
+
+var autor = 'Ayrton';
+console.log('O canal do YouTube ' + canalYoutube.trim() + ' foi criado por ' + autor);
+console.log(`O canal do Youtube ${canalYoutube.trim()} foi criado por ${autor}`);
+}
+
+//---- operadores matematicos
+{
+   console.log ('--operadores matematicos-------------------'); 
+var a = 2; 
+var b = 1/2;
+console.log (`expon raiz A ${a} , B ${b} =  ${a**b}`);
+a = 10; 
+b = 7;
+console.log (`mod RESTO  A ${a} , B ${b} =  ${a % b}`);
+}
+
+//---- booleanos
+{
+   console.log ('--booleanos-------------------'); 
+var a1 = 10;
+var a1s = '10';
+console.log ('-- igual com string');
+console.log (`${a1}=='${a1s}'   ${a1==a1s}`);
+console.log (`${a1}==='${a1s}'   ${a1===a1s}`);
+}
+
+//---- operadores logicos
+{
+   console.log ('--operadores logicos-------------------'); 
+   //valem por false
+   // null, false, '', undefined, 0   (false é false +4 elementos)
+   //tudo que difrerente de falso, vale por true
+   console.log(null, !!null);  // false
+   console.log(undefined, !!undefined);  // false
+   console.log('vazio', !!'');  // false
+   console.log('zero num', !!0);  // false
+   console.log('zero str', !!'0');  // true
+   console.log(!!'texto'); //true
+   console.log(!!20); //true
+
+   // operador AND - duplo E => && 
+   // retorna a ultima verdadeira ou a primeira false
+   // && - para true retorna o ultimo true ( que é o ultimo elemento ).
+   // && - para false retorna o primeiro false
+   console.log(10 && 'texto' && 'Programador');   // programador
+   console.log(null && 'Programador a Bordo');    // null 
+   console.log('Passa' && 0 && 'Dev');    // 0
+   console.log('Passou' && null);    // null 
+   console.log('Passou' && 0);    // 0
+   console.log("false" && 100 && '' && 'teste' && null);   //''
+   console.log(10 > 5 && 7 < 10);    // 7 < 10 - ult true
+   console.log(10 > 5 && 10 > 11);   // 10 > 11 - primeiro false
+
+   // operador OR - duplo pipe => ||
+   // retorna a primeira verdadeira ou a ultima false 
+   console.log(null || 'Programador a Bordo');          //  'Programador a Bordo' - 1a true
+   console.log(null || 'Programador a Bordo' || 26);    //  'Programador a Bordo' - 1a true
+   console.log(null || '' || 26);                       //  26 - 1a true
+   console.log('Programador a Bordo' || 'teste');       //  'Programador a Bordo' - 1a true
+   console.log(10 > 5 || 10 < 11);     // 10 > 5 - 1o true
+   console.log(10 < 5 || 10 > 11);     // 10 > 11 - ult false
+   console.log(null || false || 0);    // 0 - ult false
+
+   //diferenca de && e ||
+   // &&: retorna a ultima   verdadeira ou a primeira false
+   // ||: retorna a primeira verdadeira ou a ultima   false
+   // para lembrar sempre: AND é a ultima verdadeira. Todo o resto dá para deduzir daí.
+
+   //calculando && x || sem parenteses - precedencia
+   // AND tem precedencia ao OR
+   console.log('Programador' && 2050 || '' && 26);         // 2050 || '' -> 2050
+   console.log('Programador' && 2050 && 'a Bordo' || 0);   // 'a Bordo' || 0 -> 'a Bordo'
+}
+
+//---- if else e ternario 
+{
+console.log ('--if else e ternario -------------------'); 
+if (false) {
+			console.log ('1 - entrou'); 
+		} else if (false) {
+			console.log ('2 - entrou'); 
+		} else if (false) {
+			console.log ('3 - entrou'); 
+		} else if (true) {
+			console.log ('4 - entrou'); 
+		} else {  //posso usar else IF sem else e vice versa.
+			console.log ('5 - entrou'); 
+		}
+
+   var idade = 26;
+   console.log(idade >= 18 ? 'Maior de idade' : 'Menor de idade');
+}
+
+//---- switch 
+{
+   console.log ('--  switch case break default  -------------------'); 
+   switch('laranja') {
+    case 'vermelho':
+    case 'amarelo':
+    case 'laranja':
+      console.log('Cor quente!');
+      break;
+
+    case 'verde':
+    case 'azul':
+    case 'roxo':
+      console.log('Cor fria!');
+      break;
+
+    default:
+      console.log('Não identificado');
+      break;
+   }
+
+}
+
+//---- array 
+{
+   console.log ('--  array  -------------------'); 
+   var numeros = [5, 3, 12, 17, 10, 99];
+   console.log('numeros antes pop', numeros);
+   var numeroRetornado = numeros.pop();
+   console.log('numeros depois pop', numeros); //  [5, 3, 12, 17, 10]
+   console.log('numeroRetornado', numeroRetornado); //   99
+
+   console.log(numeros.slice(2, 5));   [12, 17, 10]
+   console.log(numeros.slice(3));      [17, 10]
+
+   console.log(numeros.join('--'));  //5--3--12--17--10
+
+   var usuario = ["Ayrton", 26, "Programador a Bordo", 2019, "Brasileiro"];
+   console.log(usuario);
+
+   usuario.push('RJ');
+   console.log(usuario); //["Ayrton", 26, "Programador a Bordo", 2019, "Brasileiro", "RJ"]
+
+   console.log(usuario.includes('Brasileiro'));  // true
+   console.log(usuario.includes('Japonês')); // false
+
+   console.log(usuario.indexOf(2019));        // 3
+   console.log(usuario.indexOf('Japonês'));   // -1
+
+   arr1 = ['RAFAEL', 'SILVEIRA', 'REIS', 1976];
+   arr2 = ['RENATA', 'SOARES', 'LEMOS', 1971];
+   var resultado = arr2.concat(arr1).concat(['teste', 'fulano', 'ciclano']); 
+   console.log(resultado);  // ["RENATA", "SOARES", "LEMOS", 1971, "RAFAEL", "SILVEIRA", "REIS", 1976, "teste", "fulano", "ciclano"]
+
+   // com ... JS separa os itens do array. 
+   console.log(...arr1); //RAFAEL SILVEIRA REIS 1976
+   console.log([...arr1, ...arr2, ...['teste', 'fulano', 'ciclano']]);  //["RAFAEL", "SILVEIRA", "REIS", 1976, "RENATA", "SOARES", "LEMOS", 1971, "teste", "fulano", "ciclano"]
+
+   var [ nome, idade, , , nacionalidade ] = usuario; 
+   console.log(nome, idade, nacionalidade); // Ayrton 26 Brasileiro
+
+}
+
+
+//---- for, for of e while 
+{
+   console.log ('--  for e while  -------------------'); 
+   var arr = [3, 5, 10, 12, 2, 19, 21, 13];
+   //              condicao while
+   for (var i = 0; i < arr.length; i++ ) {
+      console.log (`for : ${i}, ${arr[i]}`);
+   };
+
+   i=0;
+   while ( ++i < arr.length ) {
+      console.log (`while: ${i}, ${arr[i]}`);
+   };
+
+   i=0
+   for (var num of arr) {
+      console.log (`for of : ${i++}, ${num} `);
+   };
+};
+
+
+//---- functions 1
+{
+   console.log ('--functions 1 -------------------'); 
+
+   function soma(a, b) {
+      return a + b;
+   }
+    var resultadoSoma = soma(10, 5);
+    console.log(resultadoSoma); // 15
+
+    function escreverEndereco(rua, cidade, pais, ...complementos) {
+        console.log(rua);
+        console.log(cidade);
+        console.log(pais);
+
+        console.log(complementos);
+    }
+    escreverEndereco('Rua Programador a Bordo', 'Rio de Janeiro', 'Brasil', 'Estado de Janeiro', 'Casa xpto', 'CEP 123.123.123', 'Bloco 15');
+    /* 
+         Rua Programador a Bordo
+         Rio de Janeiro
+         Brasil
+         ["Estado de Janeiro", "Casa xpto", "CEP 123.123.123", "Bloco 15"]
+    */
+
+    //IIFE (Immediately Invoked Function Expression).
+    (function (nome) {
+        console.log('Executei', nome);
+    }('Ayrton'));  // Executei Ayrton
+
+   var subtraiDoisNumeros = function subtrai(a, b) {
+        return a -b;
+    };
+    console.log(subtraiDoisNumeros(10, 3)); //  7
+
+    function somaCallback(a, b, fnCallback) {
+        return fnCallback(a + b);
+    }
+    var multiplica = function(total) {
+        return total * 2;
+    };
+
+    console.log(somaCallback(10, 3, multiplica)); //  26
+    console.log(somaCallback(5, 2, function(total) {
+        return total + 20;
+    })); // 27
+    console.log(somaCallback(23, 11, function(total) {
+        return total / 2;
+    }));  // 17
+
+
+    function escreveNome(nome = 'Teshima', idade = 26) {
+        console.log(nome, idade);
+    }
+    escreveNome();  //Teshima 26
+   };
+
+//---- objects 1
+{
+   console.log ('--objects 1 -------------------'); 
+   
+
+};
+//---- objects 2
+{
+   console.log ('--objects 2 -------------------'); 
+   
+
+};
+//---- functions 2
+{
+   console.log ('--functions 2  -------------------'); 
+   
+
+};
+
+//---- escopos
+{
+   console.log ('--escopos  -------------------');    
+
+};
+//---- closures
+{
+   console.log ('--closures  -------------------');    
+
+};
+
+//---- constantes
+{
+   console.log ('--hoisting  -------------------');    
+
+};
+
+
+//---- map filter reduce
+{
+   console.log ('--map filter reduce  -------------------');    
+
+};
+
+//---- modulos
+{
+   console.log ('--modulos  -------------------');    
+
+};
+
+
+
+   </script>
+</body>
+</html>
