@@ -261,30 +261,382 @@ if (false) {
 //---- objects 1
 {
    console.log ('--objects 1 -------------------'); 
-   
+   var nomeVariavel = 'estado';
+   var usuario = {
+        nome: 'Ayrton',
+        idade: 26,
+        youtube: 'Programador a Bordo',
+        'ultimo-nome': 'Teshima',
+        ['endereço']: 'rua que sobe e desce numero que desaparece.',
+        [nomeVariavel]: 'RJ',
+        competencias: {
+            linguagens: ['JavaScript', 'Python', 'Go', 'Scala', 'PHP'],
+            instrumentosMusicais: ['Guitarra', 'Baixo', 'Bateria']
+        }
+    };
+    console.log("usuario", usuario);  
+    /*
+    {"nome": "Ayrton",
+    "youtube": "Programador a Bordo",
+    "ultimo-nome": "Teshima",
+    "endereço": "rua que sobe e desce numero que desaparece.",
+    "estado": "RJ",
+    "competencias": { "linguagens": [ "JavaScript", "Python", "Go", "Scala", "PHP" ],
+                      "instrumentosMusicais": [ "Guitarra", "Baixo", "Bateria" ] },
+    "ano": 2019,
+    "hobbies": [ "Música", "Programar", "Viajar" ]  }
+    */
+
+    console.log("usuario.idade", usuario.idade);  //usuario.idade 26
+    console.log("usuario['ultimo-nome']", usuario['ultimo-nome']);   //usuario['ultimo-nome'] Teshima
+
+    usuario.ano = 2019; 
+    console.log("adicionei usuario.ano", usuario.ano);  //adicionei usuario.ano 2019
+
+    delete usuario.idade;
+    console.log("deletei usuario.idade", usuario.idade);  //deletei usuario.idade undefined
+
+    usuario.hobbies = ['Música', 'Programar', 'Viajar'];
+    console.log("adicionei array usuario.hobbies", usuario.hobbies); //adicionei array usuario.hobbies (3) ["Música", "Programar", "Viajar"]
+
+    var usuario2 = {
+        digaOi(name) {
+            return `Olá ${name}`;
+        }
+    };
+    console.log("usuario2.digaOi('Ayrton')", usuario2.digaOi('Ayrton')); //usuario2.digaOi('Ayrton') Olá Ayrton
+
+    var cor = 'rosa';
+    var idade = 26;
+    var nome = 'Ayrton';
+    var usuario4 = { nome, idade, cor };
+    console.log("usuario4 sem dizer o nome dos campos", usuario4);  //usuario4 sem dizer o nome dos campos {nome: "Ayrton", idade: 26, cor: "rosa"}
+
+    var extraInfo = { pais: 'Brasil', estado: 'Rio de Janeiro' };
+    console.log("extraInfo", extraInfo); // extraInfo {pais: "Brasil", estado: "Rio de Janeiro"}
+
+    var novoUsuario = Object.assign({}, usuario4, extraInfo);
+    console.log("novoUsuario, assign, usuario4, extraInfo . novoUsuario = ", novoUsuario); // novoUsuario, assign, usuario4, extraInfo . novoUsuario =  
+/*    {  "nome": "Ayrton",
+         "idade": 26,
+         "cor": "rosa",
+         "pais": "Brasil",
+         "estado": "Rio de Janeiro" } */
+
+    Object.assign(usuario4, extraInfo);
+    console.log("assign, usuario4, extraInfo . usuario4 = ", usuario4);  //assign, usuario4, extraInfo . usuario4 =  
+    /* { "nome": "Ayrton",
+         "idade": 26,
+         "cor": "rosa",
+         "pais": "Brasil",
+         "estado": "Rio de Janeiro" } */
+
+    var usuario5 = { nome, idade, cor };
+    var novoUsuario2 = {
+        ...usuario5,
+        ...extraInfo,
+        sexo: 'M',
+        profissao: 'Programador'
+    };
+    console.log("fazendo assign via spread . novoUsuario2", novoUsuario2); //fazendo assign via spread . novoUsuario2 
+    /* { "nome": "Ayrton",
+         "idade": 26,
+         "cor": "rosa",
+         "pais": "Brasil",
+         "estado": "Rio de Janeiro",
+         "sexo": "M",
+         "profissao": "Programador" } */
+
+
+    // getters e setters
+    // 
+    var usuarios = [
+        {   nome: 'Ayrton',            idade: 26        },
+        {   nome: 'João',              idade: 19        },
+        {   nome: 'Maria',             idade: 21        }
+    ];
+    console.log("usuarios", usuarios); 
+    /* usuarios   {nome: "Ayrton", idade: 26}
+                  {nome: "João", idade: 19}
+                  {nome: "Maria", idade: 21}  */
+
+    console.log("usuarios[2].idade", usuarios[2].idade);   // usuarios[2].idade 21
+
+    var usuario = {
+        posicao: 0,
+        get atual() { return usuarios[this.posicao] },
+        set atual(posicao) { this.posicao = posicao; },
+        proximo() { ++this.posicao; },
+        anterior() { --this.posicao;}
+    };
+
+    console.log(usuario.atual); // { nome: 'Ayrton', idade: 26 }
+    usuario.proximo();
+
+    console.log(usuario.atual); // { nome: 'João', idade: 19 }
+
+    usuario.proximo();
+    console.log(usuario.atual); // { nome: 'Maria', idade: 21 }
+
+    usuario.anterior(); 
+    console.log(usuario.atual); // { nome: 'João', idade: 19 }
+
+    usuario.atual = 0;
+    console.log(usuario.atual); // { nome: 'Ayrton', idade: 26 }
+
+    usuario.atual = 2;
+    console.log(usuario.atual); // { nome: 'Maria', idade: 21 }
 
 };
 //---- objects 2
 {
    console.log ('--objects 2 -------------------'); 
-   
+   var novoUsuario = { nome: 'Ayrton',
+                        idade: 27,
+                        pais: 'Brasil',
+                        youtube: 'Programador a Bordo'  };
+
+   var { nome, pais, idade } = novoUsuario;
+   console.log(nome, pais, idade); // Ayrton Brasil 27
+
+   var { nome: primeiroNome } = novoUsuario;
+   console.log(primeiroNome); // Ayrton
+
+   var novoUsuario2 = {
+     nome: { primeiro: 'AyrtonPrimeiroNome', segundo: 'Jesus' }
+   };
+
+   var primeiro = novoUsuario2.nome.primeiro;
+   console.log(primeiro);  // AyrtonPrimeiroNome
+
+   var { nome: { primeiro }} = novoUsuario2;
+   console.log(primeiro);  // AyrtonPrimeiroNome
+
+   var { nome: { terceiro = 'Teshima' }} = novoUsuario2;
+   console.log(terceiro);        // Teshima ( usando valor default )
+   console.log(novoUsuario2);    // { "nome": { "primeiro": "AyrtonPrimeiroNome", "segundo": "Jesus" } }
+
+
+   console.log("Object.keys", Object.keys(novoUsuario));      // Object.keys (4) ["nome", "idade", "pais", "youtube"] 
+   console.log("Object.values", Object.values(novoUsuario));  // Object.values (4) ["Ayrton", 27, "Brasil", "Programador a Bordo"]
+
+   for (var prop2 in novoUsuario) {
+      if (novoUsuario.hasOwnProperty(prop2)) {
+         console.log(prop2, novoUsuario[prop2]);
+      }   
+   };
+/*    nome Ayrton
+      idade 27
+      pais Brasil
+      youtube Programador a Bordo   */
+
+ 
 
 };
 //---- functions 2
 {
    console.log ('--functions 2  -------------------'); 
-   
+      console.log(this)   //Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+      
+
+      function Usuario() {
+         this.nome = 'Ayrton'
+         this.idade = 27;
+         this.soma = function(a, b) {
+            return a + b;
+         }
+         console.log ( "dentro de Usuario. this: ",this);
+    };
+    Usuario();  //this:  Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+    var usuario = new Usuario(); //this:  Usuario {nome: "Ayrton", idade: 27, soma: ƒ}
+
+    // call - para tocar o this
+    function Personagem(p1, p2, p3) {
+      console.log(p1, p2, p3)
+      console.log('personagem this', this)
+    };
+    var personagemThis = {nome: 'Teshima'};
+    Personagem.call(personagemThis, 'param1', 123, [5]); // param1 123 [5]
+                                                         // personagem this {nome: "Teshima"}
+
+    //Apply  mesmo do call, só que recebe os parametros como array.
+    // nomeFunction.apply(nomeObjetoDesejado, arrayDeParametros);
+    var personagemParams = ['param$$$$', 321, [1, 2, 3]];
+    Personagem.apply(personagemThis, personagemParams);  //param$$$$ 321 (3) [1, 2, 3]
+                                                         //personagem this {nome: "Teshima"}
+
+    // bind  mesmo do call, só que não executa. Retorna uma função pronta para ser rodada como se fosse um call.
+    var pers = Personagem.bind(personagemThis, 'Olá');  //em bind, posso passar parte dos param agora e o resto na chamada da funcao retornada.
+    pers('Mundoo0', '!!!');   //Olá Mundoo0 !!!
+                              //personagem this {nome: "Teshima"}
+    console.log('pers', pers);  //pers ƒ Personagem(p1, p2, p3) {
+
+      persSemBind = Personagem;
+    console.log('persSemBind', persSemBind);  //persSemBind ƒ Personagem(p1, p2, p3) {
+   //nota minha: pers e persSemBind não têm diferenças na definição. A diferença só é percebida na execução.
+
+    // Arrow functions - não permite receber outro this (outro contexto). call, apply, bind nao fazem efeito.
+    var imprimeThis = () => {console.log(this)};
+    imprimeThis();                        //Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+    imprimeThis.call({ nome: 'Ayrton' })  //Window {window: Window, self: Window, document: document, name: "", location: Location, …}
+/*  possibilidades na declaracao de funcao:
+      function soma(a, b){return a + b;};
+      var soma = function (a, b) {return a + b;};
+      var soma = (a, b) => {return a + b;};
+      var soma = (a, b) => a + b; // retorno direto. arrrow permite suprimir o return.
+      var soma = (a, b) => (a + b); //round br opcionais neste ex, mas obrigatorios para quebrar a linha ou para retornar um obj.
+      var soma = (a, b) => ({a + b}); //correto quando vc quer retornar um obj. 
+      var soma = (a, b) => {a + b}; //errado. Js pensa que este curly br compreende o código da function.
+      var printNome = (nome) => {console.log(nome)};
+      var printNome = nome => {console.log(nome)}; // para um parametro, posso suprmir parenteses na declaracao do parametro.
+
+      atencao, isto nao existe, dá erro: 
+      var printNome = <VAZIO, SEM PARENTESES> => {console.log('Rafael')}; 
+      */
+
+      function somaDeclarado (a, b){return a + b;}; // se tiver o mesmo nome não deixa atribur novo valor com var.
+      console.log (somaDeclarado(10,5));                 //15
+      var soma = function (a, b) {return a + b;};
+      console.log (soma(10,5));                          //15
+      var soma = (a, b) => {return a + b;};
+      console.log (soma(10,5));                          //15
+      var soma = (a, b) => a + b; 
+      console.log (soma(10,5));                          //15
+      var soma = (a, b) => (a + b); 
+      console.log (soma(10,5));                          //15
+      var soma = (a, b) => ({resultado: a + b}); 
+      console.log (soma(10,5));                          //{resultado: 15}
+      var soma = (a, b) => {a + b}; 
+      console.log (soma(10,5));                          // undefined ( achou que era código! se tivesse "," daria erro)
+      var printNome = (nome) => {console.log(nome)};
+      printNome ("Rafael");                              //Rafael
+      var printNome = nome => {console.log(nome)}; 
+      printNome ("Rafael");                              //Rafael
+      
+
+
 
 };
 
+
 //---- escopos
 {
+
    console.log ('--escopos  -------------------');    
+   // atribuir uma variável sem declarar é torná-la global.
+   {for (let i=1; i<2; i++){if (true) {while (typeof naoDeclareiPais==="undefined"){naoDeclareiPais = "BR";} } } }
+   console.log("naoDeclareiPais", naoDeclareiPais);
+   console.log("window.naoDeclareiPais", window.naoDeclareiPais);
+
+   // acontece com var
+   {for (var iDefinidoComVar=1; iDefinidoComVar<2; iDefinidoComVar++){console.log("window.iDefinidoComVar", window.iDefinidoComVar);   } }; //1
+
+   // nao acontece com let
+   {for (let iDefinidoComLet=1; iDefinidoComLet<2; iDefinidoComLet++){console.log("window.iDefinidoComLet", window.iDefinidoComLet);   } }; //undefined
+
+   console.log("window.iDefinidoComVar", window.iDefinidoComVar); //2
+   console.log("window.iDefinidoComLet", window.iDefinidoComLet); //undefined
+
+   /*
+   escopo dinamico  - recomendavel evitar.
+   quando não é possível conhecer o conteudo da variável até que ela seja utilizada, pois 
+   o escopo varia de acordo com quem chama a rotina ( exemplo: this )
+   vide exemplos do call, bind e apply.
+   exemplo da wikipedia para escopo dinamico
+      int x = 0;
+      int f() { return x; }
+      int g() { int x = 1; return f(); }
+*/
+
+/*  
+   escopo lexico. ( oposto de escopo dinamico )
+   independe da pilha de chamadas em tempo de execucao.
+   Nao importa quem  chame a funcao retornada do exemplo abaixo, o valor de nome será sempre o mesmo.
+   closure usa escopo lexico, mas escopo lexico nao se restringe a closure. 
+   */
+ function usuario() {
+    let nome = 'Ayrton'
+    return function() {
+      var sobrenome = 'Teshima'
+      console.log(nome, sobrenome)
+    }
+  }
+  var user = usuario()
+  user();
+
+// let - apenas no bloco - preferível - não redeclara no mesmo bloco.
+// var - questao de estilo ou informar que a variavel ira ser usada em mais de um escopo.
 
 };
 //---- closures
 {
-   console.log ('--closures  -------------------');    
+   console.log ('--closures  -------------------');
+/* 
+   é a possibilidade de uma função JS de memorizar o 
+   escopo em que foi criada, para chamadas futuras em outro contexto
+   vide o exemplo de escopo léxico, que é uma closure básica.
+
+   um uso para o closure é a possibilidade de criar funcoes e 
+   variaveis privadas.  No exemplo abaixo, juntaNomes é uma 
+   funcao privada.
+
+   o closure é justamente o juntaNomes que só "existe" no momento em
+   que a funcao minhaBilioteca é executada, mas o objeto retornado 
+   (e suas funções "carregam" ele por toda a vida )
+   
+   uma coisa que notei é que a funcao retorna um objeto com duas funcoes
+   e isso funciona muito transparente. até melhor do que um objeto para 
+   tornar a funcao juntaNomes uma f privada.
+    */
+function minhaBilioteca() {
+      function juntaNomes (valor) {
+        return 'Rafael ' + valor
+      }
+
+      return {
+        nomeCompleto() {
+          return juntaNomes('Silveira Reis');
+        },
+        nomeEUltimoSobrenome() {
+          return juntaNomes('Reis');
+        }
+      }
+    }
+    let biblioteca = minhaBilioteca();
+    console.log(biblioteca) //{nomeCompleto: ƒ, nomeEUltimoSobrenome: ƒ}
+
+    console.log(biblioteca.nomeCompleto()) //Rafael Silveira Reis
+    console.log(biblioteca.nomeEUltimoSobrenome()) //Rafael Reis
+
+    /* 
+    implementando closure com setTimeout. setTimeout recebe uma f e um tempo em 
+    milisegundos como "delay" para executar a funcao do 1o parametro.
+    se eu nao passar uma funcao para setTimeout, o delay não irá funcionar.
+
+    Este recurso - o uso do closure em si (?) - evita o uso de funcoes anonimas 
+
+     */
+   let imprimeNomeCompletoDentroDoDelay = (nome) =>  {
+      //  aqui, eu retorno funcao, entao o setTimeout vai executar a funcao
+      //  e esperar a funcao de retorno para poder executar apos o delay.
+      return function() {console.log(nome, 'Silveira Reis - imprimeNomeCompletoDentroDoDelay');}
+    };
+
+    let imprimeNomeCompletoIgnoraODelay = (nome) =>  {
+      //  aqui, eu nao retorno funcao, entao o setTimeout vai executar a funcao
+      //  e esperar a funcao de retorno para poder executar apos o delay.
+      console.log(nome, 'Silveira Reis - imprimeNomeCompletoIgnoraODelay');
+    };
+
+    function inicializa() {
+      let nome = 'Rafael';
+      setTimeout(imprimeNomeCompletoDentroDoDelay(nome), 1000);  //Executa depois de 1 segundo  - Rafael Silveira Reis
+      setTimeout(imprimeNomeCompletoIgnoraODelay(nome), 3000);  // executa imediato.  - Rafael Silveira Reis
+    }
+
+    inicializa();
+
+
 
 };
 
@@ -306,7 +658,6 @@ if (false) {
    console.log ('--modulos  -------------------');    
 
 };
-
 
 
    </script>
