@@ -636,13 +636,88 @@ function minhaBilioteca() {
 
     inicializa();
 
-
-
 };
 
-//---- constantes
+//---- constantes, similar ao let. escopo de bloco.
+/* const -  não pode redeclarar nem reatribuir o valor.
+   var - voce pode redeclarar e  reatribuir.
+   let - voce nao pode redeclarar, mas pode reatribuir.
+
+   constante tem que declarar e atribuir ao mesmo tempo.
+   nao pode atribuir depois.
+
+   confuso: se a const for um array ou objeto, conseguimos 
+   alterar ou acrescentar um atributo do obj ou uma 
+   linha do array.
+   nao vale para string!
+*/
 {
-   console.log ('--hoisting  -------------------');    
+   //tentando manipular uma K string
+   const kTestaConstanteManipulaString = 'manipula string';
+   console.log("kTestaConstanteManipulaString", kTestaConstanteManipulaString[0]); // m
+   kTestaConstanteManipulaString[0]='A';
+   console.log("kTestaConstanteManipulaString", kTestaConstanteManipulaString[0]); // m
+
+   //tentando manipular uma K array
+   const kTestaConstanteManipulaArray = ['arr0', 'arr1', 'arr2', 'arr3'];
+   console.log("kTestaConstanteManipulaArray", kTestaConstanteManipulaArray[0]); // arr0
+   kTestaConstanteManipulaArray[0]='Array ZERO';
+   console.log("kTestaConstanteManipulaArray", kTestaConstanteManipulaArray[0]); // Array ZERO
+
+   //tentando manipular uma K objeto
+   const kTestaConstanteManipulaObjeto = {nome:'rafael', idade:45};
+   console.log("kTestaConstanteManipulaObjeto", kTestaConstanteManipulaObjeto); // {nome: "rafael", idade: 45}
+   kTestaConstanteManipulaObjeto['nome']='Silveira';
+   kTestaConstanteManipulaObjeto['cidade']='Rio';
+   console.log("kTestaConstanteManipulaObjeto", kTestaConstanteManipulaObjeto); // {nome: "Silveira", idade: 45, cidade: "Rio"}
+}
+
+
+//---- hoisting
+{
+   console.log ('--hoisting  -------------------');
+   /*
+   carrega as definições de var e functions antes 
+   da exeução do código. ( nao funciona com let e const )
+   hoist = guindaste
+   */
+   console.log(aHoisting); //undefined
+   //console.log(bHoisting); //Uncaught ReferenceError: Cannot access 'bHoisting' before initialization //temporal dead zone
+   //console.log(kHoisting); //Uncaught ReferenceError: Cannot access 'kHoisting' before initialization //temporal dead zone
+   var aHoisting = 123;  
+   let bHoisting = 321;
+   const kHoisting = "kHoisting"
+   console.log(aHoisting); //123
+   console.log(bHoisting); //321
+   console.log(kHoisting); //"kHoisting"
+
+   //console.log(fHoistingDefinidaDepoisChamada()); // Uncaught TypeError: fHoistingDefinidaDepoisChamada is not a function
+   console.log(fHoistingDefinidaDepoisChamada);//  undefined.
+   var fHoistingDefinidaDepoisChamada = function (){
+      return "fHoistingDefinidaDepoisChamada funcionou!";
+   }
+   console.log(fHoistingDefinidaDepoisChamada()); // fHoistingDefinidaDepoisChamada funcionou!
+
+   console.log('1', fHoistingDeclaradaDepoisChamada()); // fHoistingDeclaradaDepoisChamada funcionou!
+   function fHoistingDeclaradaDepoisChamada (){
+      return "fHoistingDeclaradaDepoisChamada funcionou!";
+   }
+   console.log('2', fHoistingDeclaradaDepoisChamada()); // fHoistingDeclaradaDepoisChamada funcionou!
+
+   /*funcoes criadas com let ou var (const?) são "function expression"
+   funcoes criadas com function sao  "function declaration"Usuario
+
+   Tanto o var quando o function declaration "sofrem hosting"
+   var faz hoisting apenas da variável (como  undefined)
+   function faz hoisting da declaração inteira da ultima declaração.
+   fiz mais testes em aula12a - functions - chamada simples e precedencia.js
+   */
+
+   /* em geral, evita-se hoisting. Mas pode ser útil quando o retorno de uma função é simples
+   e as funções de que este retorno dependem podem ficar depois do retorno para melhor legibilidade.
+   fora isso, é sempre melhor colocar a definição e declaração antes de usar a variavel / funcao.
+   */
+
 
 };
 
