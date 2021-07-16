@@ -724,7 +724,100 @@ function minhaBilioteca() {
 
 //---- map filter reduce
 {
-   console.log ('--map filter reduce  -------------------');    
+   console.log ('--map filter reduce  -------------------');
+   /* são aderentes ao paradigma funcional, pois nao 
+   alteram o valor da variavel fora do escopo 
+   map/filter - recebem uma callback e retornam o array com o resultado */
+   const numeros = [ 2, 3, 6, 5, 10];
+
+   console.log ('--map  -------------------');
+   /* map - executa uma mesma rotina em cada linha do array como um forEach */
+
+   const numerosDobroMap = numeros.map(function (num){return num*2});
+   console.log('numeros', ...numeros );  //numeros 2 3 6 5 10
+   console.log('numerosDobroMap', ...numerosDobroMap ); // numerosDobroMap 4 6 12 10 20
+
+   const numerosDobroMapArrow = numeros.map(num =>num*2); 
+   console.log('numerosDobroMapArrow', ...numerosDobroMapArrow ); //numerosDobroMapArrow 4 6 12 10 20
+
+
+   console.log ('--filter  -------------------');
+   /* filter - executa uma callback de teste em cada linha do array. retorna um array com as linhas que obtiveram true */
+   const numerosParesFilter = numeros.filter (
+      function (n) {
+         if (n%2===0) {
+            return true;
+         } else {
+            return false;
+         };
+      } 
+   );
+   console.log('numeros', ...numeros );  //numeros 2 3 6 5 10
+   console.log('numerosParesFilter', ...numerosParesFilter );  //numerosParesFilter  2 6 10
+
+   const numerosParesFilterArrow = numeros.filter ( n => n%2===0 );
+   console.log('numerosParesFilterArrow', ...numerosParesFilterArrow );  //numerosParesFilterArrow  2 6 10
+
+   console.log ('--map com filter  -------------------');
+   const numerosParesDobradosFilterMap = numeros
+      .filter (n=>n%2===0)
+      .map (n=>n*2); //este map roda sobre o array retornado do .filter da linha acima
+
+   console.log('numeros', ...numeros );  //numeros 2 3 6 5 10
+   console.log('numerosParesDobradosFilterMap', 
+               ...numerosParesDobradosFilterMap );  //numerosParesDobradosFilterMap 4 12 20
+   
+   console.log ('--reduce  -------------------');
+   /* reduce - usa uma callback para processar cada linha do array com a
+                vantagem de receber um valor de memória do processamento da linha anterior.
+         *parametros do reduce*: uma callback e um valor acumulador que definirá seu retorno como parametros.
+         *parametros da callback*: o acumulador e a linha corrente do array
+         a callback retorna o próximo valor para acumulador.
+         a reduce retorna o acumulador retornado pela callback da ultima iteração no array.
+         apenas lembrando que o acumulador inicial foi definido na chamada do reduce.
+   */
+
+
+   console.log ('--reduce 1o exemplo soma  -------------------');
+
+   const somaReduce = numeros.reduce ( 
+      function (acum,linha){ return acum+linha }, 
+      0); // o segundo param do reduce é ZERO.
+
+   console.log('numeros', ...numeros );  //numeros 2 3 6 5 10
+   console.log('somaReduce', somaReduce );  //somaReduce 26
+
+   const somaReduceArrow = numeros.reduce ((acum,linha)=>acum+linha, 0); // o segundo param do reduce é ZERO.
+   console.log('somaReduceArrow', somaReduceArrow );  //somaReduceArrow  26
+
+
+   console.log ('--reduce 2o exemplo maiores e menores  -------------------');
+   const pessoas =[
+      {nome: 'Rafael', idade: 45 },
+      {nome: 'Renata', idade: 50 },
+      {nome: 'Luisa', idade: 3 },
+      {nome: 'Ramile', idade: 14 },
+      {nome: 'Roxana', idade: 6 },
+      {nome: 'Laura', idade: 10 },
+      {nome: 'Antonio', idade: 23 },
+   ];
+
+
+   let pessoasAgrupadas = pessoas.reduce ( 
+      (acum, linha)=>{
+         let proriedadeMaiorOuMenor = linha.idade<18 ? 'menores':'maiores';
+         acum[proriedadeMaiorOuMenor].push(linha); //atencao: push nao retornou nada sozinho. deu erro, o JS nao encontrou propriedade push.
+         return acum;
+      },
+      {menores:[], maiores:[]} // valor inicial para pessoasAgrupadas e acum
+      );
+
+      console.log('pessoas', ...pessoas );  //
+      // {'Rafael', 45}, {'Renata', 50}, {'Luisa', 3}, {'Ramile', 14}, {'Roxana', 6}, {'Laura', 10}, {'Antonio', 23} 
+
+      console.log('pessoasAgrupadas', pessoasAgrupadas );  //
+      // maiores: {'Rafael', 45}, {'Renata', 50}, {'Antonio', 23} 
+      // maiores: {'Luisa', 3}, {'Ramile', 14}, {'Roxana', 6}, {'Laura', 10}
 
 };
 
